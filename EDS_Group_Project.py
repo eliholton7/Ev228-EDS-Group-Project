@@ -17,17 +17,17 @@ annual_mean = df.groupby('Year')['Fork length (cm)'].mean()
 #Creating an array of zeros in order to use the fill-between function in the graph.
 y1 = np.zeros(27)
 np.shape(y1)
-print(annual_mean)
+#print(annual_mean)
 x_var = np.arange(1998,2025)
 #print(df)
 
 #Creating the plot of the data.
-fig, ax = plt.subplots(figsize=(12,6))
+fig, ax = plt.subplots(figsize=(9,6))
 ax.plot(annual_mean, linewidth = 2.5,)
 plt.rcParams['font.family'] = 'serif'
-ax.set_xlabel('Year')
-ax.set_ylabel('Fork Length (cm)')
-ax.set_title('Pacific Halibut Size from 1998-2024')
+ax.set_xlabel('Year', fontsize=15)
+ax.set_ylabel('Mean Fork Length (cm)', fontsize=15)
+ax.set_title('Pacific Halibut Size from 1998-2024', fontsize=22)
 ax.fill_between(x_var,annual_mean, y1, color='lightblue', alpha=0.5)
 plt.xlim(1998,2024)
 plt.ylim(81,95)
