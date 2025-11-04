@@ -31,6 +31,7 @@ ax.set_title('Pacific Halibut Size from 1998-2024', fontsize=22)
 ax.fill_between(x_var,annual_mean, y1, color='lightblue', alpha=0.5)
 plt.xlim(1998,2024)
 plt.ylim(81,95)
+plt.grid(True, linestyle = '--', color = 'lightblue')
 plt.savefig(out_path+out_name)
 plt.show()
 
