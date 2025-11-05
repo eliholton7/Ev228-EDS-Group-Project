@@ -2,8 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-path_data = '/Users/owenwyman/Data/ev228_data/'
+path_data = '/Users/owenwyman/Data/ev228_data/EDS_data/'
 file_name = 'EDS_3.csv'
+fig_path = '/Users/owenwyman/Data/ev228_data/figures/'
+fig_name = '1_kgs.png'
+
 df = pd.read_csv(path_data + file_name)
 
 net_wt = df['Net wt (kg)']
@@ -27,12 +30,12 @@ stats_label = (
 )
 print(stats_label)
 
-fig, ax = plt.subplots(figsize=(8,6))
-ax.bar(filtered_mean.index, filtered_mean.values, color='skyblue', edgecolor='darkblue', linewidth=2, width=0.8, label=stats_label)
+fig, ax = plt.subplots(figsize=(6,6))
+ax.bar(filtered_mean.index, filtered_mean.values, color='red', edgecolor='darkred', linewidth=2, width=0.8,)
 ax.set_ylim(bottom=5, top=8)
-ax.set_xlabel('Year')
-ax.set_ylabel('Average Halibut Weight (kg)')
-ax.set_title('Pacific Halibut Weight from 2010-2024')
+ax.set_xlabel('Year', fontsize=15)
+ax.set_ylabel('Average Halibut Weight (kg)', fontsize=15)
+ax.set_title('Pacific Halibut Weight from 2019-2024', fontsize=20)
 ax.set_xticks(filtered_mean.index)
-ax.legend(loc='best', title="Statistics (2019-2025)")
-plt.show()
+# ax.legend(loc='best', title="Statistics (2019-2025)")
+plt.savefig(fig_path + fig_name, dpi=400)
